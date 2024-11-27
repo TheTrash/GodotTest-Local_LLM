@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://mgub6kf860sn"]
+
+[ext_resource type="Script" path="res://nobody_who_prompt_completion.gd" id="1_ibnew"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
+model_path = "res://models/gemma-2-2b-it-Q3_K_L.gguf"
+seed = 15
+
+[node name="NobodyWhoPromptChat" type="NobodyWhoPromptChat" parent="." node_paths=PackedStringArray("model_node")]
+model_node = NodePath("../NobodyWhoModel")
+script = ExtResource("1_ibnew")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 669.0
+offset_top = 31.0
+offset_right = 1104.0
+offset_bottom = 446.0
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+offset_left = 833.0
+offset_top = 468.0
+offset_right = 967.0
+offset_bottom = 506.0
+text = "Make prediction"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 47.0
+offset_top = 61.0
+offset_right = 508.0
+offset_bottom = 441.0
+text = "you are a medium in a small village. 
+You draw this this tarot: 
+				'the sun' will 10,
+				'the moon' will -5
+				
+make me a prediction with max 50 token"
+placeholder_text = "Inser prediction"
+
+[connection signal="completion_finished" from="NobodyWhoPromptChat" to="NobodyWhoPromptChat" method="_on_completion_finished"]
+[connection signal="completion_updated" from="NobodyWhoPromptChat" to="NobodyWhoPromptChat" method="_on_completion_updated"]
+[connection signal="pressed" from="Button" to="NobodyWhoPromptChat" method="_on_button_pressed"]
