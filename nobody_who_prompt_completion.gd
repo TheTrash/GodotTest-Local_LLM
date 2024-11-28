@@ -33,10 +33,13 @@ func _on_completion_finished() -> void:
 	print("MODEL FINISHED")
 	#label.text = phrase
 	#say("Interesting... Tell me more.")
+	c = 0
+	$"../Button".disabled = false
 
 
 func _on_button_pressed() -> void:
 	label.text = ""
 	var prompt_text = edit.text
 	say(prompt_text)
+	$"../Button".disabled = true
 	pass # Replace with function body.
