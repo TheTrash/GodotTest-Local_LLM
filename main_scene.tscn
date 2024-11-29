@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://mgub6kf860sn"]
+[gd_scene load_steps=3 format=3 uid="uid://qcbhf6wsoexg"]
 
 [ext_resource type="Script" path="res://nobody_who_prompt_completion.gd" id="1_ibnew"]
+
+[sub_resource type="NobodyWhoSampler" id="NobodyWhoSampler_y56q3"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
 model_path = "res://models/gemma-2-2b-it-Q3_K_L.gguf"
-seed = 15
 
 [node name="NobodyWhoPromptChat" type="NobodyWhoPromptChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")
+sampler = SubResource("NobodyWhoSampler_y56q3")
 script = ExtResource("1_ibnew")
 
 [node name="Label" type="Label" parent="."]
