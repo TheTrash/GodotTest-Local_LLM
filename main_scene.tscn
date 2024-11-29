@@ -38,8 +38,8 @@ offset_right = 508.0
 offset_bottom = 441.0
 text = "you are a medium in a small village. 
 You draw this this tarot: 
-				'the sun' will 10,
-				'the moon' will -5
+				'the sun' value 10,
+				'the moon' value -5
 				
 make me a prediction with max 50 token"
 placeholder_text = "Inser prediction"
