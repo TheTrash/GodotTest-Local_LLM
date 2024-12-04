@@ -7,7 +7,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="NobodyWhoModel" type="NobodyWhoModel" parent="."]
-model_path = "res://models/gemma-2-2b-it-Q3_K_L.gguf"
+model_path = "res://models/Llama-32-3B-Instruct-Q4_K_M.gguf"
 
 [node name="NobodyWhoPromptChat" type="NobodyWhoPromptChat" parent="." node_paths=PackedStringArray("model_node")]
 model_node = NodePath("../NobodyWhoModel")
